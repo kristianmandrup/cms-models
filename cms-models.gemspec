@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'mongoid', '~> 5.0.0.beta'
   spec.add_dependency 'activesupport', '~> 4.2.4'
   spec.add_dependency 'mongoid-history'
+  spec.add_dependency 'mongoid_orderable'
 end

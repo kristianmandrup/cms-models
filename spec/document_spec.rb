@@ -1,11 +1,10 @@
 require 'spec_helper'
 
-class DocumentModel
-  include Document
-  include Mongoid::History::Trackable
+class DocumentModel < Cms::Document
+  
   field :name, type: String
   
-  track_history :on => [:name]
+  tracks :name
 end
 
 describe Document do
