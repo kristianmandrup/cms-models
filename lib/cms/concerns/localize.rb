@@ -6,17 +6,16 @@ module Localize
       self.class.fields_localized
     end
 
-   fields_localize
   end
 
   class_methods do
-    def fields_localize
-      localize_fields fields_to_localize
-    end
+    #def fields_localize
+      #localize_fields fields_to_localize
+    #end
 
-    def fields_to_localize
-      [:title, :summary, :content, :caption, :label, :description]
-    end
+    #def fields_to_localize
+      #[:title, :summary, :content, :caption, :label, :description]
+    #end
 
     def localized_field name
       return unless has_field? name
@@ -24,7 +23,7 @@ module Localize
       fields_localized << name
     end
 
-    def localize_fields names
+    def localize_fields *names
       names.each {|name| localized_field name}
     end
 

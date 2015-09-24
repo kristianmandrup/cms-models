@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 class LocalizableModel < Cms::Models::Document
-  
+  include Localize
   field :name, type: String
   field :title, type: String
   field :label, type: String
   
-  include Localize
-  
+  localize_fields :title, :label
 end
 
 describe Localize do
