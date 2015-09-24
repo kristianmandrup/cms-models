@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-class DocumentModel < Cms::Document
+class DocumentModel < Cms::Models::Document
   
   field :name, type: String
   
   tracks :name
 end
 
-describe Document do
+describe Documentable do
   let(:document_model) { DocumentModel.create name: 'test'}
   
   before :each do

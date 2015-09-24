@@ -1,5 +1,10 @@
 # Abstract class: Only subclass
 # TODO: throw error if instantiated directly!
-class Cms::Document
-  include Document
+#require "cms/concerns/document"
+module Cms
+  module Models
+    class Document
+      include Documentable
+    end
+  end
 end

@@ -4,7 +4,7 @@ module Blueprintable
   included do
 
     after_save do
-      ProtoTypeBuilder.new(self.prototype).build self if prototype_id_changed?
+      Cms::Models::ProtoTypeBuilder.new(self.prototype).build self if prototype_id_changed?
     end
 
   end

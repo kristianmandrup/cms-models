@@ -4,15 +4,16 @@ require 'mongoid'
 require 'mongoid-history'
 require 'byebug'
 require 'mongoid_orderable'
+
 require "cms/models/history_tracker"
 require "cms/models/version"
-require "cms/models/concerns/document"
+require "cms/concerns/documentable"
 require "cms/models/document"
-require "cms/models/concerns/blueprintable"
+require "cms/concerns/blueprintable"
 require "cms/models/proto_type_builder"
-require "cms/models/concerns/categorizable"
-require "cms/models/concerns/composite"
-require "cms/models/concerns/listable"
+require "cms/concerns/categorizable"
+require "cms/concerns/composite"
+require "cms/concerns/listable"
 
 module Cms
   module Models

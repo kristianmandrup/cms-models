@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-class CompositeModel < Cms::Document
+class CompositeModel < Cms::Models::Document
   include Composite
 end
 

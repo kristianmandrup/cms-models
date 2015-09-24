@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-class CategorizedModel < Cms::Document
+class CategorizedModel < Cms::Models::Document
   include Categorizable
 end
 
