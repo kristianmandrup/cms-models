@@ -14,6 +14,9 @@ require "cms/models/proto_type_builder"
 require "cms/concerns/categorizable"
 require "cms/concerns/composite"
 require "cms/concerns/listable"
+require "cms/concerns/extendable"
+require "cms/models/attribute/generic"
+
 
 module Cms
   module Models
