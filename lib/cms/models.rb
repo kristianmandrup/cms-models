@@ -16,6 +16,8 @@ require "cms/concerns/composite"
 require "cms/concerns/listable"
 require "cms/concerns/extendable"
 require "cms/models/attribute/generic"
+require "cms/concerns/localize"
+
 
 
 module Cms
