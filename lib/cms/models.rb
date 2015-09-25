@@ -4,6 +4,7 @@ require 'mongoid'
 require 'mongoid-history'
 require 'byebug'
 require 'mongoid_orderable'
+require 'workflow'
 
 require "cms/models/history_tracker"
 require "cms/models/version"
@@ -20,6 +21,9 @@ require "cms/concerns/localize"
 require "cms/concerns/meta_info"
 require "cms/concerns/describable"
 require "cms/concerns/taggable"
+require "cms/concerns/named"
+require "cms/concerns/publishable"
+require "cms/concerns/workflowable"
 
 module Cms
   module Models

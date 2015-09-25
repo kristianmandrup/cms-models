@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport', '~> 4.2.4'
   spec.add_dependency 'mongoid-history'
   spec.add_dependency 'mongoid_orderable'
+  spec.add_dependency 'workflow'
 end
