@@ -24,6 +24,10 @@ require "cms/concerns/taggable"
 require "cms/concerns/named"
 require "cms/concerns/publishable"
 require "cms/concerns/workflowable"
+require "cms/concerns/renderable"
+require "cms/concerns/serializable"
+require "cms/concerns/translatable"
+require "cms/concerns/uniquely_named"
 
 module Cms
   module Models
