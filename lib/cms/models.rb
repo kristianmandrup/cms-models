@@ -17,8 +17,9 @@ require "cms/concerns/listable"
 require "cms/concerns/extendable"
 require "cms/models/attribute/generic"
 require "cms/concerns/localize"
-
-
+require "cms/concerns/meta_info"
+require "cms/concerns/describable"
+require "cms/concerns/taggable"
 
 module Cms
   module Models
