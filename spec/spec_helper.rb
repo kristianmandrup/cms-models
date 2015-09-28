@@ -11,4 +11,5 @@ RSpec.configure do |config|
   Mongo::Logger.logger.level = Logger::WARN
   config.tty = true
   config.color = true
+  config.formatter = :documentation 
 end
