@@ -5,6 +5,8 @@ require 'mongoid-history'
 require 'byebug'
 require 'mongoid_orderable'
 require 'workflow'
+require 'microsoft_translator'
+require 'dotenv'
 
 require "cms/models/history_tracker"
 require "cms/models/version"
@@ -28,6 +30,8 @@ require "cms/concerns/renderable"
 require "cms/concerns/serializable"
 require "cms/concerns/translatable"
 require "cms/concerns/uniquely_named"
+require "cms/models/translator"
+
 
 module Cms
   module Models

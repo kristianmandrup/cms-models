@@ -1,3 +1,5 @@
+require "cms/concerns/translator/microsoft"
+
 module Translatable
   extend ActiveSupport::Concern
 
@@ -7,7 +9,6 @@ module Translatable
 
   def translate_all
     fields_localized.each {|name| translate_field name }
-    save!
   end
 
   def translate_field name
@@ -20,7 +21,7 @@ module Translatable
   end
 
   def translator
-    @translator ||= Cms::Translator.new(Cms::MicrosoftTranslator.new)
+    @translator ||= Cms::Models::Translator.new(Translator::Microsoft.new)
   end
 end
 

@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'mongoid-history'
   spec.add_dependency 'mongoid_orderable'
   spec.add_dependency 'workflow'
+  spec.add_dependency 'microsoft_translator'
+  spec.add_dependency 'dotenv-rails'
 end
