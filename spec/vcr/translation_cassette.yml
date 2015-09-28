@@ -1,0 +1,331 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://datamarket.accesscontrol.windows.net/v2/OAuth2-13
+    body:
+      encoding: US-ASCII
+      string: client_id=TeclaCms&client_secret=epUTBoHslL0Ok7%2FQSVolTCiGPrCuZfC02XIAQ0kgiC8%3D&scope=http%3A%2F%2Fapi.microsofttranslator.com&grant_type=client_credentials
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '158'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Request-Id:
+      - 8a177980-89ae-41e0-898f-e63386043dd4
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Mon, 28 Sep 2015 15:31:44 GMT
+      Content-Length:
+      - '597'
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0","access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d","expires_in":"600","scope":"http://api.microsofttranslator.com"}'
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:45 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Detect?text=hello
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=604800
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/xml; charset=utf-8
+      Expires:
+      - Mon, 05 Oct 2015 15:31:46 GMT
+      Last-Modified:
+      - Mon, 28 Sep 2015 15:31:46 GMT
+      Etag:
+      - 53FE4FEB9/28/2015 8:31:46 AM
+      X-Ms-Trans-Info:
+      - 1250.V2_Rest.Detect.40845634
+      Date:
+      - Mon, 28 Sep 2015 15:31:45 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">en</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:46 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Translate?contentType=text/html&from=en&text=hello&to=es
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '81'
+      Content-Type:
+      - application/xml; charset=utf-8
+      X-Ms-Trans-Info:
+      - 0642.V2_Rest.Translate.40D39889
+      Date:
+      - Mon, 28 Sep 2015 15:31:46 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Hola</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:46 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Translate?contentType=text/html&from=en&text=hello&to=fr
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '82'
+      Content-Type:
+      - application/xml; charset=utf-8
+      X-Ms-Trans-Info:
+      - 0759.V2_Rest.Translate.4088011E
+      Date:
+      - Mon, 28 Sep 2015 15:31:46 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Salut</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:47 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Translate?contentType=text/html&from=en&text=hello&to=de
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '82'
+      Content-Type:
+      - application/xml; charset=utf-8
+      X-Ms-Trans-Info:
+      - 1250.V2_Rest.Translate.40845691
+      Date:
+      - Mon, 28 Sep 2015 15:31:47 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Hallo</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:47 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Detect?text=hello%20world
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=604800
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/xml; charset=utf-8
+      Expires:
+      - Mon, 05 Oct 2015 15:31:47 GMT
+      Last-Modified:
+      - Mon, 28 Sep 2015 15:31:47 GMT
+      Etag:
+      - BD6C19A29/28/2015 8:31:47 AM
+      X-Ms-Trans-Info:
+      - 0642.V2_Rest.Detect.40D39908
+      Date:
+      - Mon, 28 Sep 2015 15:31:47 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">en</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:48 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Translate?contentType=text/html&from=en&text=hello%20world&to=es
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '87'
+      Content-Type:
+      - application/xml; charset=utf-8
+      X-Ms-Trans-Info:
+      - 1446.V2_Rest.Translate.40BB5F6D
+      Date:
+      - Mon, 28 Sep 2015 15:31:48 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Hola
+        mundo</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:48 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Translate?contentType=text/html&from=en&text=hello%20world&to=fr
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '96'
+      Content-Type:
+      - application/xml; charset=utf-8
+      X-Ms-Trans-Info:
+      - 0759.V2_Rest.Translate.408801DD
+      Date:
+      - Mon, 28 Sep 2015 15:31:48 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Salut
+        tout le monde</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:48 GMT
+- request:
+    method: get
+    uri: http://api.microsofttranslator.com/V2/Http.svc/Translate?contentType=text/html&from=en&text=hello%20world&to=de
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=TeclaCms&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1443454905&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=EBGxVrmWVO%2fWp7UkqvBmQfWilxMriEHbVB5rF0N2wc4%3d
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '87'
+      Content-Type:
+      - application/xml; charset=utf-8
+      X-Ms-Trans-Info:
+      - 0759.V2_Rest.Translate.40880220
+      Date:
+      - Mon, 28 Sep 2015 15:31:48 GMT
+    body:
+      encoding: UTF-8
+      string: <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Hallo
+        Welt</string>
+    http_version: 
+  recorded_at: Mon, 28 Sep 2015 15:31:49 GMT
+recorded_with: VCR 2.9.3

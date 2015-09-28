@@ -28,4 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'workflow'
   spec.add_dependency 'microsoft_translator'
   spec.add_dependency 'dotenv-rails'
+  
+  spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'vcr'
 end

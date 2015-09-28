@@ -19,8 +19,6 @@ describe Documentable do
   end
   
   it "should be trackable" do
-  
-  puts document_model.attributes
     document_model.update(name: 'test1')
     document_model.update(name: 'test2')
     expect(document_model.name).to eq('test2')
@@ -33,8 +31,7 @@ describe Documentable do
     expect(document_model.type).to eq("DocumentModel")
   end
   
-  it "should be apply_concerns" do
-  end
+  it "should be apply_concerns"
 
   
   it "should have field" do

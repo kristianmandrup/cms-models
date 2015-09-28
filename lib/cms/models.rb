@@ -4,9 +4,12 @@ require 'mongoid'
 require 'mongoid-history'
 require 'byebug'
 require 'mongoid_orderable'
+require 'vcr'
+require 'webmock'
 require 'workflow'
 require 'microsoft_translator'
 require 'dotenv'
+
 
 require "cms/models/history_tracker"
 require "cms/models/version"
