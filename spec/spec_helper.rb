@@ -1,8 +1,6 @@
 require 'rspec'
-
 require 'active_support/all'
 require 'mongoid'
-
 require 'cms-models'
 require 'webmock/rspec'
 
@@ -19,8 +17,7 @@ RSpec.configure do |config|
   config.formatter = :documentation 
   
   WebMock.disable_net_connect!(allow_localhost: true)  
-  
-  config.extend VCR::RSpec::Macros
+
 end
 
 VCR.configure do |c|  
