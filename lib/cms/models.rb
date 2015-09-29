@@ -9,6 +9,10 @@ require 'webmock'
 require 'workflow'
 require 'microsoft_translator'
 require 'dotenv'
+require 'carrierwave'
+require 'carrierwave/mongoid'
+require 'mini_magick'
+require 'carrierwave_backgrounder'
 
 
 require "cms/models/history_tracker"
@@ -34,6 +38,10 @@ require "cms/concerns/serializable"
 require "cms/concerns/translatable"
 require "cms/concerns/uniquely_named"
 require "cms/models/translator"
+require "cms/concerns/uploadable"
+require "cms/concerns/validatable"
+require "cms/uploaders/image_uploader"
+
 
 
 module Cms

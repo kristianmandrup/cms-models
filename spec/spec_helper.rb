@@ -26,3 +26,8 @@ VCR.configure do |c|
   # your HTTP request service. 
   c.hook_into :webmock
 end  
+
+
+CarrierWave::Backgrounder.configure do |c|
+  c.backend :resque, queue: :carrierwave
+end
