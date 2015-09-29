@@ -5,5 +5,6 @@ class SerializableModel < Cms::Models::Document
 end
 
 describe Serializable do
-  pending 'todo'
+  let(:serializable_model) { SerializableModel.create }
+  
 end
