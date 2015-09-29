@@ -7,13 +7,13 @@ module Serializable
     end
 
     def api_attributes
-      @api_attributes ||= potential_api_attributes.filter do |name|
+      @api_attributes ||= potential_api_attributes.select do |name|
         has_field? name
       end
     end
 
     def potential_api_attributes
-      default_api_attributes.merge(my_api_attributes)
+      default_api_attributes.concat(my_api_attributes)
     end
 
     def my_api_attributes
