@@ -8,7 +8,7 @@ module ContentItem
     include Validatable
     include Renderable
     include Publishable
-    #include Blueprintable 
+    include Blueprintable 
     include Serializable
     tracks :all
   end

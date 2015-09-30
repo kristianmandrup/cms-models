@@ -2,11 +2,9 @@ module Blueprintable
   extend ActiveSupport::Concern
   
   included do
-
     after_save do
       Cms::Models::ProtoTypeBuilder.new(self.prototype).build self if prototype_id_changed?
     end
-
   end
 
   class_methods do

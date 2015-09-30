@@ -1,3 +1,4 @@
+require 'cms/validators'
 module Validatable
   extend ActiveSupport::Concern
 
@@ -6,7 +7,7 @@ module Validatable
     include ActiveModel::Validations
 
     # advanced runtime record validation goes here!!
-    ####validates_with Cms::Model::Validator
+    #validates_with Cms::Model::Validator
 
     fields_validation
   end
@@ -14,7 +15,7 @@ module Validatable
   class_methods do
     # build validation methods for this class :)
     def fields_validation
-      ###Cms::Model::ValidatorBuilder.new self
+      Cms::Validators::ValidatorBuilder.new self
     end
   end
 end
