@@ -5,7 +5,7 @@ module Cms
       attr_reader :model, :name
 
       def initialize model, name
-        @model, @field_name = [model, name]
+        @model, @name = [model, name]
       end
 
       # http://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html

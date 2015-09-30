@@ -4,10 +4,9 @@ class Cms::Models::Block < Cms::Models::Document
   
   field :title, type: String
   field :content, type: String
+  field :summary, type: String
   
-  validates :title, presence: true    
-  validates :content, presence: true    
-  
+  fields_validation
   blueprint!
 
   # belongs_to :block_lists, class_name: 'Cms::BlockList', inverse_of: :blocks
