@@ -18,11 +18,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.7"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency 'bundler', "~> 1.7"
+  spec.add_development_dependency 'rake', "~> 10.0"
+  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'factory_girl'
+  spec.add_development_dependency 'faker'
   
   spec.add_dependency 'mongoid', '~> 5.0.0.beta'
   spec.add_dependency 'activesupport', '~> 4.2.4'

@@ -3,6 +3,8 @@ require 'active_support/all'
 require 'mongoid'
 require 'cms-models'
 require 'webmock/rspec'
+require 'factory_girl'
+require 'faker'
 
 RSpec.configure do |config|
   Mongoid.load!('mongoid.yml', :development)
@@ -17,7 +19,9 @@ RSpec.configure do |config|
   config.formatter = :documentation 
   
   WebMock.disable_net_connect!(allow_localhost: true)  
-
+  config.include FactoryGirl::Syntax::Methods
+  FactoryGirl.definition_file_paths = %w{./spec/factories}
+  FactoryGirl.find_definitions
 end
 
 VCR.configure do |c|  
