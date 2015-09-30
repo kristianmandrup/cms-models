@@ -40,6 +40,7 @@ require 'cms/concerns/uniquely_named'
 require 'cms/models/translator'
 require 'cms/concerns/uploadable'
 require 'cms/concerns/validatable'
+require 'cms/concerns/content_item'
 require 'cms/uploaders/image_uploader'
 
 require 'cms/models/block'

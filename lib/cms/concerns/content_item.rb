@@ -3,12 +3,12 @@ module ContentItem
 
   included do
     include UniquelyNamed
-    include Metadata
+    include MetaInfo
     include Translatable
     include Validatable
     include Renderable
     include Publishable
-    include Blueprintable 
+    #include Blueprintable 
     include Serializable
     tracks :all
   end
