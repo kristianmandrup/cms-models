@@ -2,11 +2,19 @@ require 'spec_helper'
 
 class CompositeModel < Cms::Models::Document
   include Composite
+  
+  field :name,  type: String
+  
+  belongs_to :list, polymorphic: true
+end
+
+class ListModel < CompositeModel
+  has_many :composite_models , as: :list
 end
 
 describe Composite do
   let(:composite_model) { CompositeModel.create position: 0 }
-  it "should have orderable" do
+  it "should be orderable" do
     composite_model
     composite_model1 = CompositeModel.create position: 1
     composite_model2 = CompositeModel.create position: 2
