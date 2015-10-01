@@ -1,6 +1,10 @@
 FactoryGirl.define do
-  factory :template, class: 'Cms::Template' do
+  factory :template, class: 'Cms::Models::Template' do
     name { Faker::Name.name }
-    content { Faker::Lorem.paragraph(10) }
+    template { Faker::Lorem.paragraph(10) }
+    
+    factory :layout do
+      type { 'layout'}
+    end
   end
 end
