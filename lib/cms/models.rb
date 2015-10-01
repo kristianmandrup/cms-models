@@ -42,8 +42,12 @@ require 'cms/concerns/uploadable'
 require 'cms/concerns/validatable'
 require 'cms/concerns/content_item'
 require 'cms/uploaders/image_uploader'
-
+require 'cms/concerns/images'
+require 'cms/concerns/templates'
+require 'cms/models/template'
 require 'cms/models/block'
+require 'cms/models/image'
+
 
 
 

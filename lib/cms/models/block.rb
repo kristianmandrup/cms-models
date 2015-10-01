@@ -1,6 +1,9 @@
 class Cms::Models::Block < Cms::Models::Document
   include ContentItem
   include Listable
+  include Extendable
+  include Images
+  include Templates
   
   field :title, type: String
   field :content, type: String
