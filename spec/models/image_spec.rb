@@ -5,8 +5,12 @@ RSpec.describe Cms::Models::Image, type: :model do
   let(:image) {FactoryGirl.build(:image)}
   
   it "should have valid image factory" do
-    image.img_content = file
-    expect(image).to be_valid
+    VCR.use_cassette('image_upload', :match_requests_on => [:method, :host]) do
+      image.img_content = file
+      expect(image).to be_valid
+      image.save!
+      expect(image.url).not_to be_nil
+    end
   end
 
   #it "should require a title" do

@@ -15,6 +15,10 @@ describe Images do
   end
   
   it "should have images" do
-    #image_model.images << FactoryGirl.create(:image)
+    VCR.use_cassette('image_upload', :match_requests_on => [:method, :host]) do
+      image = FactoryGirl.create(:image, img_content: file)
+      image_model.images << image
+      expect(image_model.images.count).to eq(1)
+    end
   end
 end

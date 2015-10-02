@@ -1,21 +1,9 @@
 class Cms::Models::Image < Cms::Models::Document
-  #include ContentItem
-  include UniquelyNamed
-  include MetaInfo
-  include Translatable
-  include Validatable
-  include Renderable
-  include Publishable
-  #include Blueprintable 
-  include Serializable
-  
-  #include Templates
-  #include Listable
+  include ContentItem
+  include Templates
+  include Listable
   include Uploadable
   
-  
-    
-    
   field :title, type: String
   field :mime_type, type: String
 
@@ -27,5 +15,5 @@ class Cms::Models::Image < Cms::Models::Document
     [:mime_type]
   end
 
-  #alias_method :url, :img_content_url
+  alias_method :url, :img_content_url
 end
