@@ -1,7 +1,11 @@
 require 'spec_helper'
-
+require 'concerns/uniquely_named_spec'
 RSpec.describe Cms::Models::Block, type: :model do
-
+  
+  it_behaves_like "UniquelyNamed" do
+    let(:uniquely_named_model) { FactoryGirl.create(:block) }
+  end
+  
   let(:block) {FactoryGirl.create(:block)}
 
   after(:all) do
