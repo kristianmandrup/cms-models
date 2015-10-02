@@ -12,7 +12,7 @@ class ValidatableModel < Cms::Models::Document
 end
 
 describe Validatable do
-  let(:validatable_model) { ValidatableModel.create name: 'test name', title: 'test title', content: 'test content', summary: 'test summary'}
+  let(:validatable_model) { ValidatableModel.create name: Faker::Lorem.characters(10), title: 'test title', content: 'test content', summary: 'test summary'}
   
   it "should require name" do
     validatable_model.name = nil

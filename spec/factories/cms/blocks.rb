@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :block, class: 'Cms::Models::Block' do
-    name { Faker::Name.name }
+    name { Faker::Lorem.characters(10) }
     title { Faker::Name.name }
     content { Faker::Lorem.paragraph(10) }
     position { 0 }

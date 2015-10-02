@@ -19,6 +19,7 @@ module Cms
 
       def named_field
         model.validates name, length: { minimum: 2, maximum: 30 } if named_field?
+        model.validates_format_of name, with: /\A(?=.*[a-z])[a-z\d]+\Z/i  if named_field?
       end
 
       def named_field?

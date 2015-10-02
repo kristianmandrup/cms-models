@@ -5,7 +5,7 @@ module Named
     # name is an identifier, used by REST API
     field :name, type: String
 
-    # must be unique and always present!
-    validates :name, presence: true
+    include Validatable
+    fields_validation
   end
 end
