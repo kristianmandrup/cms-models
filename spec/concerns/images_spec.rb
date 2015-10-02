@@ -7,6 +7,7 @@ class ImagesModel < Cms::Models::Document
 end
 
 describe Images do
+  let(:file) { File.new(File.join('spec', 'fixtures', 'ruby.png'), 'r') }
   let(:image_model) {ImagesModel.create name: Faker::Name.name }
 
   it "should be valid image model" do

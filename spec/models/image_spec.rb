@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 RSpec.describe Cms::Models::Image, type: :model do
-
-  let(:image) {FactoryGirl.create(:image)}
+  let(:file) { File.new(File.join('spec', 'fixtures', 'ruby.png'), 'r') }
+  let(:image) {FactoryGirl.build(:image)}
   
   it "should have valid image factory" do
+    image.img_content = file
     expect(image).to be_valid
   end
 

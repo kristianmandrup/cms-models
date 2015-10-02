@@ -1,9 +1,21 @@
 class Cms::Models::Image < Cms::Models::Document
   #include ContentItem
+  include UniquelyNamed
+  include MetaInfo
+  include Translatable
+  include Validatable
+  include Renderable
+  include Publishable
+  #include Blueprintable 
+  include Serializable
+  
   #include Templates
   #include Listable
-  #include Uploadable
+  include Uploadable
   
+  
+    
+    
   field :title, type: String
   field :mime_type, type: String
 
