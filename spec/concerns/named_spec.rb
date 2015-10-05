@@ -4,8 +4,8 @@ class NamedModel < Cms::Models::Document
   include Named
 end
 
-describe Named do
-  let(:named_model) {NamedModel.create name: 'test name'}
+RSpec.shared_examples "Named" do
+  
   it "should have name" do
     expect(named_model.name).to eq('test name')
   end
@@ -37,4 +37,10 @@ describe Named do
     expect(named_model).to be_valid
   end
   
+end
+
+RSpec.describe NamedModel do
+  it_behaves_like "Named" do
+    let(:named_model) {NamedModel.create name: 'test name'}
+  end
 end

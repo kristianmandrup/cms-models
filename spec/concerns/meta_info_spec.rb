@@ -6,8 +6,8 @@ class MetaInfoModel < Cms::Models::Document
   metadata_fields keywords: Array, author: String
 end
 
-describe MetaInfo do
-  let(:meta_info_model) { MetaInfoModel.create description: 'test description', categories: ['test1','test2'], tags: ['tag1','tag2'] }
+RSpec.shared_examples "MetaInfo" do 
+  
   it "should have description field"do
     expect(meta_info_model.description).to eq('test description')
   end
@@ -27,4 +27,10 @@ describe MetaInfo do
     expect(MetaInfoModel.fields.keys).to include('author')
   end
   
+end
+
+RSpec.describe MetaInfoModel do
+  it_behaves_like "MetaInfo" do
+    let(:meta_info_model) { MetaInfoModel.create description: 'test description', categories: ['test1','test2'], tags: ['tag1','tag2'] }
+  end
 end

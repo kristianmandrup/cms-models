@@ -12,8 +12,7 @@ class SerializableModel < Cms::Models::Document
   end
 end
 
-describe Serializable do
-  let(:serializable_model) { SerializableModel.create name: 'test', title: 'title1' }
+RSpec.shared_examples "Serializable" do
   
   it "should serialize name if expose in my_api_attributes method" do
     response = JSON.parse(serializable_model.to_json)
@@ -26,3 +25,10 @@ describe Serializable do
   end
   
 end
+
+RSpec.describe SerializableModel do
+  it_behaves_like "Serializable" do
+    let(:serializable_model) { SerializableModel.create name: 'test', title: 'title1' }
+  end
+end
+

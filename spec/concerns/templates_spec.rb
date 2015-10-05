@@ -5,8 +5,7 @@ class TemplatesModel < Cms::Models::Document
   field :name, type: String
 end
 
-describe Templates do
-  let(:template_model) { TemplatesModel.create name: Faker::Name.name}
+RSpec.shared_examples "Templates" do
   
   it 'should be valid' do
     expect(template_model).to be_valid
@@ -17,4 +16,10 @@ describe Templates do
     expect(template_model.templates.count).to eq(1)
   end
   
+end
+
+RSpec.describe TemplatesModel do
+  it_behaves_like "Templates" do
+    let(:template_model) { TemplatesModel.create name: Faker::Name.name}
+  end
 end

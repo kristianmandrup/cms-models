@@ -7,7 +7,7 @@ module Documentable
     include Mongoid::History::Trackable
 
     def type
-      self.class.name.gsub('Cms::', '')
+      self.class.name
     end
 
     def has_field? name

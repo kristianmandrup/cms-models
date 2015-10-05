@@ -6,9 +6,7 @@ class ExtendableModel < Cms::Models::Document
   field :name, type: String
 end
 
-describe Extendable do
-  
-  let(:extendable_model) { ExtendableModel.create name: "test" }
+RSpec.shared_examples "Extendable" do
   
   it "should be valid" do
     expect(extendable_model).to be_valid
@@ -31,5 +29,11 @@ describe Extendable do
     
     expect(generic_attributes[1].caption).to eq('caption2')
     expect(generic_attributes[1].generic_type).to eq('ExtendableModel')
+  end
+end
+
+RSpec.describe ExtendableModel do
+  it_behaves_like "Extendable" do
+    let(:extendable_model) { ExtendableModel.create name: "test" }
   end
 end

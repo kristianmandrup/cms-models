@@ -7,9 +7,7 @@ class TranslatableModel < Cms::Models::Document
   localize_fields :title, :description 
 end
 
-describe Translatable do
-  let(:translatable_model) { TranslatableModel.create title: 'hello', description: 'hello world' }
-
+RSpec.shared_examples "Translatable" do
   
   it "should translate all fields" do
     VCR.use_cassette('translation_cassette') do
@@ -38,3 +36,9 @@ describe Translatable do
   end
     
 end
+RSpec.describe TranslatableModel do
+  it_behaves_like "Translatable" do
+    let(:translatable_model) { TranslatableModel.create title: 'hello', description: 'hello world' }
+  end
+end
+

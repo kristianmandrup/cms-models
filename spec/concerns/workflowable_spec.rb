@@ -4,8 +4,7 @@ class WorkflowableModel < Cms::Models::Document
   include Workflowable
 end
 
-describe Workflowable do
-  let(:workflowable_model) { WorkflowableModel.create }
+RSpec.shared_examples "Workflowable" do
   
   it "should have state field" do
     expect(WorkflowableModel.fields.keys).to include('state')
@@ -38,3 +37,10 @@ describe Workflowable do
     expect(workflowable_model.state).to eq('dev')
   end
 end
+
+RSpec.describe WorkflowableModel do
+  it_behaves_like "Workflowable" do
+    let(:workflowable_model) { WorkflowableModel.create }
+  end
+end
+

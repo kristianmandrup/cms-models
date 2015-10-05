@@ -4,8 +4,7 @@ class PublishableModel < Cms::Models::Document
   include Publishable
 end
 
-describe Publishable do
-  let(:publishable_model) { PublishableModel.create }
+RSpec.shared_examples "Publishable" do
   
   it "should have status" do
     expect(PublishableModel.fields.keys).to include('state')
@@ -41,3 +40,10 @@ describe Publishable do
   end
    
 end
+
+RSpec.describe PublishableModel do
+  it_behaves_like "Publishable" do
+     let(:publishable_model) { PublishableModel.create }
+  end
+end
+

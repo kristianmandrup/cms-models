@@ -11,8 +11,7 @@ class ValidatableModel < Cms::Models::Document
   fields_validation
 end
 
-describe Validatable do
-  let(:validatable_model) { ValidatableModel.create name: Faker::Lorem.characters(10), title: 'test title', content: 'test content', summary: 'test summary'}
+RSpec.shared_examples "Validatable" do
   
   it "should require name" do
     validatable_model.name = nil
@@ -37,5 +36,11 @@ describe Validatable do
   it "should not require summary" do
     validatable_model.summary = nil
     expect(validatable_model).to be_valid
+  end
+end
+
+RSpec.describe ValidatableModel do
+  it_behaves_like "Validatable" do
+    let(:validatable_model) { ValidatableModel.create name: Faker::Lorem.characters(10), title: 'test title', content: 'test content', summary: 'test summary'}
   end
 end

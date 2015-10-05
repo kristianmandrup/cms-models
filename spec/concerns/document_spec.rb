@@ -7,8 +7,7 @@ class DocumentModel < Cms::Models::Document
   tracks :name
 end
 
-describe Documentable do
-  let(:document_model) { DocumentModel.create name: 'test'}
+RSpec.shared_examples "Documentable" do 
   
   before :each do
     document_model
@@ -19,16 +18,18 @@ describe Documentable do
   end
   
   it "should be trackable" do
-    document_model.update(name: 'test1')
-    document_model.update(name: 'test2')
-    expect(document_model.name).to eq('test2')
+    name1 = Faker::Lorem.characters(10)
+    name2 = Faker::Lorem.characters(10)
+    document_model.update!(name: name1)
+    document_model.update!(name: name2)
+    expect(document_model.name).to eq(name2)
     expect(document_model.history_tracks.count).to eq(2)
     document_model.undo!
-    expect(document_model.name).to eq('test1')
+    expect(document_model.name).to eq(name1)
   end
   
   it "should be type" do
-    expect(document_model.type).to eq("DocumentModel")
+    expect(document_model.type).to eq(described_class.to_s)
   end
   
   it "should be apply_concerns"
@@ -37,5 +38,11 @@ describe Documentable do
   it "should have field" do
     has_field = DocumentModel.has_field? :name
     expect(has_field).to be true
+  end
+end
+
+RSpec.describe DocumentModel do
+  it_behaves_like "Documentable" do
+    let(:document_model) { DocumentModel.create name: 'test'}
   end
 end
