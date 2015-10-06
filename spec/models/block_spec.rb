@@ -1,15 +1,21 @@
 require 'spec_helper'
-require 'concerns/uniquely_named_spec'
+require 'concerns/document_spec'
+require 'concerns/content_item_spec'
+require 'concerns/listable_spec'
+require 'concerns/extendable_spec'
+require 'concerns/images_spec'
+require 'concerns/templates_spec'
+
 RSpec.describe Cms::Models::Block, type: :model do
   
-  it_behaves_like "UniquelyNamed" do
-    let(:uniquely_named_model) { FactoryGirl.create(:block) }
+  let(:block) {FactoryGirl.create(:block)}
+  
+  it_behaves_like "Documentable" do
+    let(:document_model) { block }
   end
   
-  let(:block) {FactoryGirl.create(:block)}
-
-  after(:all) do
-    # Cms::Block.destroy_all
+  it_behaves_like "ContentItem" do
+    let(:block) {FactoryGirl.create(:block)}
   end
 
   it "should have valid block factory" do
