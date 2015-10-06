@@ -9,28 +9,29 @@ end
 RSpec.shared_examples "MetaInfo" do 
   
   it "should have description field"do
-    expect(meta_info_model.description).to eq('test description')
+    expect(meta_info_model.description).to eq(description)
   end
   
   it "should have categories" do
-    expect(meta_info_model.categories).to include('test1')
-    expect(meta_info_model.categories).to include('test2')
+    expect(meta_info_model.categories).to match_array(categories)
   end
   
   it "should have tags" do
-    expect(meta_info_model.tags).to include('tag1')
-    expect(meta_info_model.tags).to include('tag2')
+    expect(meta_info_model.tags).to match_array(tags)
   end
   
   it "should have meta fields" do
-    expect(MetaInfoModel.fields.keys).to include('keywords')
-    expect(MetaInfoModel.fields.keys).to include('author')
+    expect(described_class.fields.keys).to include('keywords')
+    expect(described_class.fields.keys).to include('author')
   end
   
 end
 
 RSpec.describe MetaInfoModel do
   it_behaves_like "MetaInfo" do
-    let(:meta_info_model) { MetaInfoModel.create description: 'test description', categories: ['test1','test2'], tags: ['tag1','tag2'] }
+    let(:categories) { Faker::Lorem.words(2) }
+    let(:tags) { Faker::Lorem.words(2) }
+    let(:description) { Faker::Lorem.sentence }
+    let(:meta_info_model) { MetaInfoModel.create description: description, categories: categories, tags: tags }
   end
 end
