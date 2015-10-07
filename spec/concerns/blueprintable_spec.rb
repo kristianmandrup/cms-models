@@ -7,6 +7,8 @@ class PrototypeModel
   field :name, type: String
 
   field :title, type: String
+  
+  
 
   def blueprint_attributes
     nil
@@ -58,7 +60,7 @@ RSpec.shared_examples "Blueprintable" do
     
   context 'blueprint model is created with prototype' do
     it 'should transfer all field values from prototype to blueprint' do
-      keys = prototype.fields.keys - ['_id', 'prototype_id']
+      keys = prototype.fields.keys - ['_id', 'prototype_id', 'updated_at','created_at', 'name']
       keys.each do |key|
         expect(blueprint[key]).to eq(prototype[key])
       end
@@ -70,14 +72,15 @@ end
 RSpec.describe BlueprintModel do
   it_behaves_like "Blueprintable" do
     let(:prototype) { BlueprintModel.create name: 'prototype', title: 'hello world' }
-    let(:blueprint) { prototype.blueprints.create  }
+    let(:blueprint) { prototype.blueprints.create name: Faker::Lorem.characters(10)  }
   end
+  
 end
 
 
 RSpec.describe SimpleBlueprintModel do
   it_behaves_like "Blueprintable" do
     let(:prototype) { SimpleBlueprintModel.create name: 'prototype', title: 'hello world' }
-    let(:blueprint) { prototype.blueprints.create  }
+    let(:blueprint) { prototype.blueprints.create name: Faker::Lorem.characters(10) }
   end
 end
