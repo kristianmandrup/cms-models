@@ -47,6 +47,7 @@ require 'cms/concerns/templates'
 require 'cms/models/template'
 require 'cms/models/block'
 require 'cms/models/image'
+require 'cms/models/user'
 
 
 

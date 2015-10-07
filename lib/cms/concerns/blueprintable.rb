@@ -9,7 +9,7 @@ module Blueprintable
         belongs_to :prototype, class_name: class_name, :inverse_of => :blueprints
         has_many :blueprints, class_name: class_name, :inverse_of => :prototype
         
-        after_save do
+        before_validation do
           Cms::Models::ProtoTypeBuilder.new(self.prototype).build self if prototype_id_changed?
         end
       end

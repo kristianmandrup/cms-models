@@ -12,13 +12,14 @@ module Cms
       # each name is a field or relation name (ie. attribute name)
       def build target
         attributes_to_transfer.each do |name|
-          target[name] = prototype[name]
+          val = prototype.send(name)
+          target.send("#{name}=", val)
         end
       end
 
       def attributes_to_transfer
         return prototype.blueprint_attributes if prototype.blueprint_attributes.present?
-        prototype.fields.keys - ['_id']
+        prototype.fields.keys - ['_id','prototype_id','name']
       end
     end
   end

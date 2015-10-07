@@ -17,8 +17,8 @@ RSpec.describe Cms::Models::Block, type: :model do
   it_behaves_like "ContentItem" do
     let(:categories) { Faker::Lorem.words(2) }
     let(:tags) { Faker::Lorem.words(2) }
-    let(:description) { Faker::Lorem.sentence }
-    let(:content_item_model) {FactoryGirl.create(:block, description: description, categories: categories, tags: tags)}
+    let(:description) { expected_description_translations['en'] }
+    let(:content_item_model) {FactoryGirl.create(:block, title: expected_title_translations['en'], description: description, categories: categories, tags: tags)}
   end
 
   it "should have valid block factory" do
@@ -39,6 +39,7 @@ RSpec.describe Cms::Models::Block, type: :model do
     block.content = nil
     expect(block).to be_invalid
   end
+  
 
   # it "should have trackable history and counts" do
   #   user = FactoryGirl.create(:user)
