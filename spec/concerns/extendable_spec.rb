@@ -13,27 +13,28 @@ RSpec.shared_examples "Extendable" do
   end
   
   it "should have genric attributes" do
-    extendable_model = ExtendableModel.create(
-                                      name: "test", 
-                                      generic_attributes_attributes: 
-                                      [
-                                          {caption: 'caption1', input: 'input1', output: 'output1', value: 'value1' },
-                                          {caption: 'caption2', input: 'input2', output: 'output2', value: 'value2' }
-                                      ]
-                        )
     generic_attributes = extendable_model.generic_attributes
     expect(generic_attributes.count).to eq(2)
     
-    expect(generic_attributes[0].caption).to eq('caption1')
-    expect(generic_attributes[0].generic_type).to eq('ExtendableModel')
-    
-    expect(generic_attributes[1].caption).to eq('caption2')
-    expect(generic_attributes[1].generic_type).to eq('ExtendableModel')
+    generic_attributes.each_with_index do |generic_attribute, index|
+      expect(generic_attribute.caption).to eq(extendable_attributes[:generic_attributes_attributes][index][:caption])
+      expect(generic_attribute.generic_type).to eq(described_class.to_s)
+    end
   end
 end
 
 RSpec.describe ExtendableModel do
+  def attribute_hash
+    { name: Faker::Lorem.characters(10), 
+      generic_attributes_attributes: [
+        {caption: 'caption1', input: 'input1', output: 'output1', value: 'value1' },
+        {caption: 'caption2', input: 'input2', output: 'output2', value: 'value2' }
+      ]
+    }
+  end
+  
   it_behaves_like "Extendable" do
-    let(:extendable_model) { ExtendableModel.create name: "test" }
+    let(:extendable_attributes) { attribute_hash }
+    let(:extendable_model) { ExtendableModel.create(attribute_hash) }
   end
 end
