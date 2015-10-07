@@ -5,8 +5,10 @@ require 'cms-models'
 require 'webmock/rspec'
 require 'factory_girl'
 require 'faker'
-
+require 'helpers'
 RSpec.configure do |config|
+  config.include Helpers
+  
   Mongoid.load!('mongoid.yml', :development)
   Mongoid.logger.level = Logger::WARN
   Mongo::Logger.logger.level = Logger::WARN

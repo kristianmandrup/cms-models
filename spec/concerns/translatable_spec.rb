@@ -8,37 +8,36 @@ class TranslatableModel < Cms::Models::Document
 end
 
 RSpec.shared_examples "Translatable" do
-  
+ 
   it "should translate all fields" do
     VCR.use_cassette('translation_cassette') do
       translatable_model.translate_all
 
-      expect(translatable_model.title_translations[:en]).to eq('hello')
-      expect(translatable_model.title_translations[:es]).to eq('Hola')
-      expect(translatable_model.title_translations[:fr]).to eq('Salut')
-      expect(translatable_model.title_translations[:de]).to eq('Hallo')
+      translatable_model.title_translations.each do |key,val|
+        expect(translatable_model.title_translations[key]).to eq(expected_title_translations[key])
+      end
       
-      expect(translatable_model.description_translations[:en]).to eq('hello world')
-      expect(translatable_model.description_translations[:es]).to eq('Hola mundo')
-      expect(translatable_model.description_translations[:fr]).to eq('Salut tout le monde')
-      expect(translatable_model.description_translations[:de]).to eq('Hallo Welt')
+      translatable_model.description_translations.each do |key,val|
+        expect(translatable_model.description_translations[key]).to eq(expected_description_translations[key])
+      end
     end
   end
   
   it 'should translate given field' do
     VCR.use_cassette('translation_cassette') do
       translatable_model.translate_field(:title)
-      expect(translatable_model.title_translations[:en]).to eq('hello')
-      expect(translatable_model.title_translations[:es]).to eq('Hola')
-      expect(translatable_model.title_translations[:fr]).to eq('Salut')
-      expect(translatable_model.title_translations[:de]).to eq('Hallo')
+      
+      translatable_model.title_translations.each do |key,val|
+        expect(translatable_model.title_translations[key]).to eq(expected_title_translations[key])
+      end
     end
   end
     
 end
+
 RSpec.describe TranslatableModel do
   it_behaves_like "Translatable" do
-    let(:translatable_model) { TranslatableModel.create title: 'hello', description: 'hello world' }
+    let(:translatable_model) { TranslatableModel.create title: expected_title_translations['en'], description: expected_description_translations['en'] }
   end
 end
 
