@@ -11,11 +11,14 @@ RSpec.describe Cms::Models::Block, type: :model do
   let(:block) {FactoryGirl.create(:block)}
   
   it_behaves_like "Documentable" do
-    let(:document_model) { block }
+    let(:document_model) {FactoryGirl.create(:block)}
   end
   
   it_behaves_like "ContentItem" do
-    let(:block) {FactoryGirl.create(:block)}
+    let(:categories) { Faker::Lorem.words(2) }
+    let(:tags) { Faker::Lorem.words(2) }
+    let(:description) { Faker::Lorem.sentence }
+    let(:content_item_model) {FactoryGirl.create(:block, description: description, categories: categories, tags: tags)}
   end
 
   it "should have valid block factory" do

@@ -5,6 +5,9 @@ FactoryGirl.define do
     name { Faker::Lorem.characters(10) }
     title { Faker::Name.name }
     content { Faker::Lorem.paragraph(10) }
+    categories { Faker::Lorem.words(2) }
+    tags { Faker::Lorem.words(2) }
+    description { Faker::Lorem.sentence }
     position { 0 }
   end
 end

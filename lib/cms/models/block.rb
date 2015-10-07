@@ -9,8 +9,12 @@ class Cms::Models::Block < Cms::Models::Document
   field :content, type: String
   field :summary, type: String
   
+  metadata_fields keywords: Array, author: String
+  
   fields_validation
   blueprint!
+  
+  tracks :name
 
   # belongs_to :block_lists, class_name: 'Cms::BlockList', inverse_of: :blocks
   # belongs_to :named_block, class_name: 'Cms::NamedBlock', inverse_of: :block
