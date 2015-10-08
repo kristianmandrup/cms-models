@@ -23,6 +23,11 @@ RSpec.describe Cms::Models::Block, type: :model do
     let(:content_item_model) {FactoryGirl.create(:block, name: name, title: title, description: description, categories: categories, tags: tags)}
   end
   
+  it_behaves_like "Blueprintable" do
+    let(:prototype) { FactoryGirl.create(:block) }
+    let(:blueprint) { prototype.blueprints.create name: Faker::Lorem.characters(10)  }
+  end
+  
   it_behaves_like "Listable" do
     let(:listable_model) {FactoryGirl.create(:block)}
     let(:listable_model1) { FactoryGirl.create(:block, position: 2 ) }
