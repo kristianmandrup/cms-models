@@ -42,3 +42,77 @@ RSpec.shared_examples "ContentItem" do
   
   
 end
+
+class ContentItemModel < Cms::Models::Document
+  include ContentItem
+  
+  field :title, type: String
+  field :content, type: String
+  field :summary, type: String
+  
+  
+  metadata_fields keywords: Array, author: String
+  
+  fields_validation
+  localize_fields :title, :description 
+  blueprint!
+  
+  tracks :name
+  
+  def blueprint_attributes
+    nil
+  end
+  
+  def serializable_attributes
+    [:name]
+  end
+  
+  
+end
+
+RSpec.describe ContentItemModel do
+  it_behaves_like "ContentItem" do
+    let(:name) { Faker::Lorem.characters(10) }
+    let(:title) { expected_title_translations['en'] }
+    let(:categories) { Faker::Lorem.words(2) }
+    let(:tags) { Faker::Lorem.words(2) }
+    let(:description) { expected_description_translations['en'] }
+    let(:content_item_model) {FactoryGirl.create(:block, name: name, title: title, description: description, categories: categories, tags: tags)}
+  end
+end
+class ContentItemModel < Cms::Models::Document
+  include ContentItem
+  
+  field :title, type: String
+  field :content, type: String
+  field :summary, type: String
+  
+  metadata_fields keywords: Array, author: String
+  
+  localize_fields :title, :description 
+  
+  fields_validation
+  
+  blueprint!
+  
+  def blueprint_attributes
+    nil
+  end
+  
+  def serializable_attributes
+    [:name]
+  end
+  
+  
+end
+
+RSpec.describe ContentItemModel do
+  it_behaves_like "ContentItem" do
+    let(:name) { Faker::Lorem.characters(10) }
+    let(:title) { expected_title_translations['en'] }
+    let(:categories) { Faker::Lorem.words(2) }
+    let(:tags) { Faker::Lorem.words(2) }
+    let(:description) { expected_description_translations['en'] }
+    let(:content_item_model) {FactoryGirl.create(:block, name: name, title: title, description: description, categories: categories, tags: tags)}
+  end
+end
