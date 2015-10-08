@@ -13,10 +13,10 @@ module Serializable
     end
 
     def potential_api_attributes
-      default_api_attributes.concat(my_api_attributes)
+      default_api_attributes.concat(serializable_attributes)
     end
 
-    def my_api_attributes
+    def serializable_attributes
       []
     end
 

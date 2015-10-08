@@ -36,5 +36,9 @@ RSpec.shared_examples "ContentItem" do
     let(:blueprint) { prototype.blueprints.create name: Faker::Lorem.characters(10)  }
   end
   
-
+  it_behaves_like "Serializable" do
+    let(:serializable_model) { content_item_model }
+  end
+  
+  
 end
