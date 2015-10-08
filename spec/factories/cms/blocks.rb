@@ -8,6 +8,6 @@ FactoryGirl.define do
     categories { Faker::Lorem.words(2) }
     tags { Faker::Lorem.words(2) }
     description { Faker::Lorem.sentence }
-    position { 0 }
+    position { 1 }
   end
 end

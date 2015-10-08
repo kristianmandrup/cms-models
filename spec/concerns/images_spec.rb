@@ -23,7 +23,6 @@ end
 
 RSpec.describe ImagesModel do
   it_behaves_like "Images" do
-     let(:file) { File.new(File.join('spec', 'fixtures', 'ruby.png'), 'r') }
      let(:image_model) {ImagesModel.create name: Faker::Name.name }
   end
 end
