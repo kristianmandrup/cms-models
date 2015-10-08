@@ -20,6 +20,10 @@ class Cms::Models::Block < Cms::Models::Document
   def blueprint_attributes
     nil
   end
+  
+  def serializable_attributes
+    [:name]
+  end
 
   # belongs_to :block_lists, class_name: 'Cms::BlockList', inverse_of: :blocks
   # belongs_to :named_block, class_name: 'Cms::NamedBlock', inverse_of: :block
