@@ -1,10 +1,12 @@
 FactoryGirl.define do
   factory :image, class: "Cms::Models::Image" do
-    name { Faker::Name.name }
+    name { Faker::Lorem.characters(10) }
     title { Faker::Name.name }
-    #metainfo
-    description {Faker::Lorem.paragraph(2)}
-    categories {Faker::Lorem.words(4) }
-    tags { Faker::Lorem.words(4) }
+    content { Faker::Lorem.paragraph(10) }
+    categories { Faker::Lorem.words(2) }
+    tags { Faker::Lorem.words(2) }
+    description { Faker::Lorem.sentence }
+    position { 1 }
+    img_content { File.new(File.join('spec', 'fixtures', 'ruby.png'), 'r')  }
   end
 end
