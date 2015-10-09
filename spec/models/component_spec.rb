@@ -1,13 +1,29 @@
 require 'spec_helper'
-
+require 'concerns/named_spec'
 RSpec.describe Cms::Models::Component, type: :model do
 
   let(:component) {FactoryGirl.create(:component)}
-
-  it "should have valid component factory" do
-    expect(component).to be_valid
+  
+  it_behaves_like 'Named' do
+    let(:named_model) { component }
   end
 
+  it 'should have valid component factory' do
+    expect(component).to be_valid
+  end
+  
+  it 'should have page field' do
+    expect(Cms::Models::Component.fields.keys).to include('page')
+  end
+
+  it 'should have recursive childs' do
+    child_one = component.child_components.create(FactoryGirl.attributes_for(:component))
+    child_two = component.child_components.create(FactoryGirl.attributes_for(:component))
+    
+    expect(component.child_components.count).to eq(2)
+    expect(child_one.parent_component).to equal(component)
+  end
+  
   #it "should require a name" do
     #component.name = nil
     #expect(component).to be_invalid

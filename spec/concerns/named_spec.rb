@@ -6,8 +6,8 @@ end
 
 RSpec.shared_examples "Named" do
   
-  it "should have name" do
-    expect(named_model.name).to eq('test name')
+  it "should be valid" do
+    expect(named_model).to be_valid
   end
   
   it "should validate name presence" do
@@ -41,6 +41,6 @@ end
 
 RSpec.describe NamedModel do
   it_behaves_like "Named" do
-    let(:named_model) {NamedModel.create name: 'test name'}
+    let(:named_model) {NamedModel.create name: Faker::Lorem.characters(10) }
   end
 end
