@@ -48,9 +48,8 @@ require 'cms/models/template'
 require 'cms/models/block'
 require 'cms/models/image'
 require 'cms/models/user'
-
-
-
+require 'cms/models/composite'
+require 'cms/models/component'
 
 module Cms
   module Models
