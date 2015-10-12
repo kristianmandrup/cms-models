@@ -19,7 +19,7 @@ RSpec.shared_examples "Named" do
     named_model.name = Faker::Lorem.characters(1)
     expect(named_model).to be_invalid
     
-    named_model.name = Faker::Lorem.characters(3)
+    named_model.name = Faker::Lorem.word[0..2]
     expect(named_model).to be_valid
     
     named_model.name = Faker::Lorem.characters(31)
