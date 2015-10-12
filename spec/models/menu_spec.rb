@@ -17,8 +17,9 @@ RSpec.describe Cms::Models::Menu, type: :model do
     expect(menu).to be_valid
   end
   
-  #it 'should have many items' do
-    
-  #end
+  it 'should have many items' do
+    menu.menu_items.create( FactoryGirl.attributes_for(:item) )
+    expect(menu.menu_items.count).to eq(1)
+  end
   
 end
