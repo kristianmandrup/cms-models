@@ -1,3 +1,4 @@
+require 'cms/models/menu/hashable'
 class Cms::Models::Menu < Cms::Models::Document
   include Hashable
   include UniquelyNamed

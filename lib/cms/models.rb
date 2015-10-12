@@ -50,6 +50,7 @@ require 'cms/models/image'
 require 'cms/models/user'
 require 'cms/models/composite'
 require 'cms/models/component'
+require 'cms/models/menu'
 
 module Cms
   module Models
