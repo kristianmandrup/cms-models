@@ -41,4 +41,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'resque'
   spec.add_dependency 'resque-scheduler'
   spec.add_dependency 'carrierwave_backgrounder'
+  spec.add_dependency 'abstraction'
 end
