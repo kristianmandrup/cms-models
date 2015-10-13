@@ -1,4 +1,4 @@
-class Cms::Models::Menu < Cms::Models::Document
+class Cms::Models::Menu < Cms::Models::Composite
   module Hashable
     def set_hash
       hash = {}

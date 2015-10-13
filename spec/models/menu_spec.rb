@@ -18,8 +18,15 @@ RSpec.describe Cms::Models::Menu, type: :model do
   end
   
   it 'should have many items' do
-    menu.menu_items.create( FactoryGirl.attributes_for(:item) )
-    expect(menu.menu_items.count).to eq(1)
+    menu1 = FactoryGirl.create(:menu)
+    menu2 = FactoryGirl.create(:menu)
+    menu_item1 = FactoryGirl.create(:item)
+    
+    menu1.add_item(menu2) # add nested menu
+    expect(menu1.menu_items.count).to eq(1)
+    
+    menu1.add_item(menu_item1) # add menu item
+    expect(menu1.menu_items.count).to eq(2)
   end
   
 end

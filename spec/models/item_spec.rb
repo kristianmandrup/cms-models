@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Cms::Models::Menu::Item, type: :model do
-  let(:menu) { FactoryGirl.create(:menu) }
-  let(:item) {FactoryGirl.create(:item, menu: menu )}
+  let(:item) {FactoryGirl.create(:item )}
   
   def field_names
     Cms::Models::Menu::Item.fields.keys
