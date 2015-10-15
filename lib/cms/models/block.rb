@@ -17,6 +17,8 @@ class Cms::Models::Block < Cms::Models::Document
   
   tracks :name
   
+  belongs_to :block_list, class_name: 'Cms::Models::Block::List', inverse_of: :blocks
+  
   def blueprint_attributes
     nil
   end

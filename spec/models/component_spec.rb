@@ -24,6 +24,8 @@ RSpec.describe Cms::Models::Component, type: :model do
     expect(child_one.parent_component).to equal(component)
   end
   
+  it 'should be hashable'
+  
   #it "should require a name" do
     #component.name = nil
     #expect(component).to be_invalid

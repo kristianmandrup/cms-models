@@ -51,6 +51,7 @@ require 'cms/models/user'
 require 'cms/models/composite'
 require 'cms/models/component'
 require 'cms/models/menu'
+require 'cms/models/block/list'
 
 module Cms
   module Models
