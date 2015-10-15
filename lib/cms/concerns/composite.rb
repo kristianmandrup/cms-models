@@ -5,7 +5,7 @@ module Composite
     include Listable
 
     def type
-      self.class.name.gsub("Cms::", "")
+      self.class.name
     end
   end
 

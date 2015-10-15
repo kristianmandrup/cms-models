@@ -3,6 +3,10 @@ class Cms::Models::Menu::Item < Cms::Models::Composite
   include Translatable
   include Validatable
   
+  text_field :icon
+  text_field :label
+  text_field :link
+  
   fields_validation
   localize_fields :label, :link
   
