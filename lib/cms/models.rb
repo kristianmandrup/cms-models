@@ -52,6 +52,7 @@ require 'cms/models/composite'
 require 'cms/models/component'
 require 'cms/models/menu'
 require 'cms/models/block/list'
+require 'cms/models/image/list'
 
 module Cms
   module Models
