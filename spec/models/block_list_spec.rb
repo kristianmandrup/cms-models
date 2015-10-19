@@ -36,7 +36,6 @@ RSpec.describe Cms::Models::Block::List, type: :model do
     expect(block_list).to be_valid
   end
   
-  
   it 'should have many block' do
     block_list1 = FactoryGirl.create(:block_list)
     
