@@ -53,6 +53,8 @@ require 'cms/models/component'
 require 'cms/models/menu'
 require 'cms/models/block/list'
 require 'cms/models/image/list'
+require 'cms/models/named/block'
+require 'cms/models/named/image'
 
 module Cms
   module Models
