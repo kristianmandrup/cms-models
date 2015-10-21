@@ -24,7 +24,25 @@ RSpec.describe Cms::Models::Component, type: :model do
     expect(child_one.parent_component).to equal(component)
   end
   
-  it 'should be hashable'
+  it 'should have templates' do
+    component
+    template1 = FactoryGirl.create(:template)
+    component.templates << template1
+    
+    template2 = FactoryGirl.create(:template)
+    component.templates << template2
+    expect(component.templates.count).to eq(2)
+  end
+  
+  it 'should be hashable' do 
+    component
+    child_one = component.child_components.create(FactoryGirl.attributes_for(:component))
+    child_two = component.child_components.create(FactoryGirl.attributes_for(:component))
+    response = component.set_hash
+    expect(response["name"]).to eq(component.name)
+    expect(response[child_one.name]["name"]).to eq(child_one.name)
+    expect(response[child_two.name]["name"]).to eq(child_two.name)
+  end
   
   #it "should require a name" do
     #component.name = nil

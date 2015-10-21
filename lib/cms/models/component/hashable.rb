@@ -3,8 +3,9 @@ class Cms::Models::Component < Cms::Models::Composite
     # TODO: All this hash logic should be extracted to a Concern or utility class
     def set_hash
       hash = {}
+      hash['name'] = self.name
       hash['type'] = self.type
-      composite_components.each do |item|
+      child_components.each do |item|
         set_hash_by item, hash
       end
       hash
@@ -15,15 +16,15 @@ class Cms::Models::Component < Cms::Models::Composite
       hash[item.name]['type'] = item.type if item.type
 
       case item._type
-      when 'Cms::Component'
+      when 'Cms::Models::Component'
         hash[item.name] = item.set_hash
-      when 'Cms::BlockList'
+      when 'Cms::Models::Block::List'
         hash[item.name]['blocks'] = blocks_hash item
-      when 'Cms::ImageList'
+      when 'Cms::Models::Image::List'
         hash[item.name]['images'] = images_hash item
-      when 'Cms::NamedBlock'
+      when 'Cms::Models::Named::Block'
         hash[item.name]['block'] = block_hash item
-      when 'Cms::NamedImage'
+      when 'Cms::Models::Named::Image'
         hash[item.name]['image'] = image_hash item
       end
     end

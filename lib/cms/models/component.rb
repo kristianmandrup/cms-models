@@ -7,5 +7,5 @@ class Cms::Models::Component < Cms::Models::Composite
   field :page, type: Boolean, default: false
 
   recursively_embeds_many
-  #has_many :templates, class_name: 'Cms::Template', as: :templatable
+  has_many :templates, class_name: 'Cms::Models::Template', as: :templatable
 end

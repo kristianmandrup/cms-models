@@ -14,7 +14,6 @@ class Cms::Models::Image < Cms::Models::Document
   #belongs_to :named_image, class_name: 'Cms::Models::Named::Image', inverse_of: :image
   #belongs_to :image_list, class_name: 'Cms::Models::Image::List', inverse_of: :images
 
-  
   metadata_fields keywords: Array, author: String
   
   fields_validation
