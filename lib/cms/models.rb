@@ -55,6 +55,7 @@ require 'cms/models/block/list'
 require 'cms/models/image/list'
 require 'cms/models/named/block'
 require 'cms/models/named/image'
+require 'cms/models/page'
 
 module Cms
   module Models
