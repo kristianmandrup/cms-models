@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Cms::Models::VERSION
   spec.authors       = ["Kristian Mandrup"]
   spec.email         = ["kmandrup@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Test summary}
+  spec.description   = %q{Test description}
   spec.homepage      = ""
   spec.license       = "MIT"
 

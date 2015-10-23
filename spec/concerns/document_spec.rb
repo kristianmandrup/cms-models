@@ -32,7 +32,7 @@ RSpec.shared_examples "Documentable" do
     expect(document_model.type).to eq(described_class.to_s)
   end
   
-  it "should be apply_concerns"
+  #it "should be apply_concerns"
 
   
   it "should have field" do
