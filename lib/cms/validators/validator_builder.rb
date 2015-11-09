@@ -17,7 +17,7 @@ module Cms
       end
 
       def field_validations!
-        model.fields.keys.each do |name|
+        model.fields.each_key do |name|
           add_validations name
         end
       end

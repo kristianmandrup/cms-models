@@ -19,12 +19,13 @@ module Localize
 
     def localized_field name
       return unless has_field? name
-      field name, type: String, localize: true
+      # [FIXME]: Why we are overwriting here?
+      field name, type: String, overwrite: true, localize: true
       fields_localized << name
     end
 
     def localize_fields *names
-      names.each {|name| localized_field name}
+      names.each(&method(:localized_field))
     end
 
     def fields_localized
