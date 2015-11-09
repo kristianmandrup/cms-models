@@ -1,4 +1,3 @@
-require 'cms/validators'
 module Validatable
   extend ActiveSupport::Concern
 
