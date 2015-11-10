@@ -21,6 +21,8 @@ module Cms
       localize_fields :title, :description
       blueprint!
 
+      # [FIXME]: We are already tracking +:all+ in +ContentItem+ module, do
+      # we really this?
       tracks :name
 
       belongs_to :block_list, class_name: 'Cms::Models::Block::List', inverse_of: :blocks

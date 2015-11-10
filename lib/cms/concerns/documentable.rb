@@ -1,6 +1,6 @@
 module Documentable
   extend ActiveSupport::Concern
-  
+
   included do
     include Mongoid::Document
     include Mongoid::Timestamps
@@ -14,7 +14,7 @@ module Documentable
       self.class.has_field? name
     end
   end
-  
+
   class_methods do
 
     # ============
@@ -33,12 +33,12 @@ module Documentable
     end
 
     def has_field? name
-      self.fields.keys.include? name.to_s
+      self.fields.has_key? name.to_s
     end
 
     def tracks *fields
       track_history :on => fields
     end
   end
-  
+
 end

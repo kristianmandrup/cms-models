@@ -6,7 +6,7 @@ module Cms
     extend ActiveSupport::Autoload
 
     def self.version_string
-      "Cms version #{Cms::Models::VERSION}"
+      "Cms version #{VERSION}"
     end
 
     autoload :Version

@@ -25,6 +25,8 @@ module Cms
       fields_validation
       localize_fields :title, :description
 
+      # [FIXME]: We are already tracking +:all+ in +ContentItem+ module, do
+      # we really this?
       tracks :name
 
       def blueprint_attributes

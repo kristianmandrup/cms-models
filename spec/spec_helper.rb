@@ -3,14 +3,15 @@ ENV['TRANSLATOR_CLIENT_ID'] ||= ''
 
 require 'rspec'
 require 'active_support/all'
+require 'byebug'
 require 'mongoid'
 require 'cms-models'
-require 'vcr'
-require 'webmock'
-require 'webmock/rspec'
 require 'factory_girl'
 require 'faker'
 require 'helpers'
+
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
 RSpec.configure do |config|
   config.include Helpers
 
@@ -24,34 +25,4 @@ RSpec.configure do |config|
   config.tty = true
   config.color = true
   config.formatter = :documentation
-
-  WebMock.disable_net_connect!(allow_localhost: true)
-  config.include FactoryGirl::Syntax::Methods
-  FactoryGirl.definition_file_paths = %w{./spec/factories}
-  FactoryGirl.find_definitions
-  Fog.mock!
-end
-
-VCR.configure do |c|
-  #the directory where your cassettes will be saved
-  c.cassette_library_dir = 'spec/vcr'
-  # your HTTP request service.
-  c.hook_into :webmock
-end
-
-
-CarrierWave.configure do |config|
-  config.fog_credentials = {
-    :provider              => 'aws',
-    :aws_access_key_id     => "AWS_KEY",
-    :aws_secret_access_key => "AWS_SECRET",
-    :region                => "eu-central-1" # Change this for different AWS region. Default is 'us-east-1'
-  }
-  config.fog_directory  = "tecla-cms"
-  config.storage = :file
-end
-Cms::Uploaders::ImageUploader.storage = :file
-
-CarrierWave::Backgrounder.configure do |c|
-  c.backend :resque, queue: :carrierwave
 end
