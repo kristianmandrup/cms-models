@@ -1,6 +1,5 @@
 require 'cms/concerns'
 
-autoload :User, 'cms/models/user'
 module Cms
   module Models
     extend ActiveSupport::Autoload
@@ -18,7 +17,6 @@ module Cms
     autoload :Template
     autoload :Block
     autoload :Image
-    # autoload :User
     autoload :Composite
     autoload :Component
     autoload :Menu

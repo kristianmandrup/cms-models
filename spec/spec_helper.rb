@@ -18,6 +18,7 @@ RSpec.configure do |config|
   Mongoid.load!('mongoid.yml', :development)
   Mongoid.logger.level = Logger::WARN
   Mongo::Logger.logger.level = Logger::WARN
+  Mongoid::History.modifier_class_name = 'Cms::Models::DummyUser'
 
   Dotenv.load
   I18n.available_locales = [:en, :es, :fr, :de]
