@@ -1,22 +1,34 @@
-class Cms::Models::Menu < Cms::Models::Composite
-  module Hashable
-    def set_hash
-      hash = {}
-      hash['type'] = self.type
-      hash['name'] = self.name
-      hash['menu_items'] = { 'items' => list_items_hash }
-      menu_items.where(_type: 'Cms::Models::Menu').each do |item|
-        hash['menu_items'][item.name] = {}
-        hash['menu_items'][item.name] = item.set_hash
+module Cms
+  module Models
+    class Menu < Composite
+      module Hashable
+        extend ActiveSupport::Concern
+        def set_hash
+          hash = {
+            'type' => type,
+            'name' => name,
+            'menu_items' => {
+              'items' => list_items_hash
+            }
+          }
+
+          menu_items.menus.each do |menu|
+            hash['menu_items'][menu.name] = menu.set_hash
+          end
+          hash
+        end
+
+        private
+          def list_items_hash
+            menu_items.items.as_json(only: [:icon, :link, :label], methods: [:type])
+          end
+
+        module ClassMethods
+          def set_hash
+            all.map(&:set_hash)
+          end
+        end
       end
-      hash
-    end
-
-    private
-
-    def list_items_hash
-      menu_items.where(_type: 'Cms::Models::Menu::Item').as_json(only: [:icon, :link, :label], methods: [:type])
     end
   end
 end
-
