@@ -1,13 +1,12 @@
-require 'cms/models/menu/hashable'
-
 module Cms
   module Models
     class Menu < Composite
       extend ActiveSupport::Autoload
-      include Cms::Models::Menu::Hashable
       include UniquelyNamed
 
       autoload :Item
+
+      scope :root, -> { where(composite_item_type: nil, composite_item_id: nil) }
 
       has_many :menu_items, class_name: 'Cms::Models::Composite', as: :composite_item do
         def items
